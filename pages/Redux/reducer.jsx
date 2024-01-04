@@ -1,6 +1,15 @@
 import axios from "axios";
 import React from "react";
 // reducer
+import React from 'react'
+
+const reducer = () => {
+  return (
+    <div>.</div>
+  )
+}
+
+export default reducer
 const initialState = {
   questionType: "",
   category: "",
