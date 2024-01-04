@@ -57,7 +57,7 @@ const handleChange = ()=>{
 const selectQuestionDelete =  async (id)=>{
   let deleteConfirm = confirm("Are you sure to delete this question?");
     if(deleteConfirm){
-      const data = await axios.delete("http://localhost:3000/api/deleteQuestion", {data : id})
+      const data = await axios.delete("/api/deleteQuestion", {data : id})
       // console.log(data.data , "data.data") 
       if(data.status == 200){
         alert("Question Deleted")
@@ -79,7 +79,7 @@ const selectQuestionDelete =  async (id)=>{
    setSecondButton(true)
    const plyerName = typeof window !== 'undefined' ? localStorage.getItem("newQuestion") : null;
   const plyerNameJson = plyerName ? JSON.parse(plyerName) : null;
-   const updateQuestionInDatabase =  await axios.put("http://localhost:3000/api/updateQuestion", {data : {
+   const updateQuestionInDatabase =  await axios.put("/api/updateQuestion", {data : {
     id : idToUpdateQuestion,
     question :plyerNameJson 
    }})
@@ -171,7 +171,7 @@ const selectQuestionDelete =  async (id)=>{
 }
 export async function getServerSideProps(){
   try {
-    const getQuestionFromDatabase = await axios.get("http://localhost:3000/api/getQuestions")
+    const getQuestionFromDatabase = await axios.get("/api/getQuestions")
     const questions =  getQuestionFromDatabase.data
    
     return{
