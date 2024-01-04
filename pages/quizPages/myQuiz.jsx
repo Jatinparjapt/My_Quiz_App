@@ -48,7 +48,7 @@ export default function MyQuiz({questions}) {
   const questionUpdate = (e)=>{
 setUpdateQuestion(e.target.value)
    const data =  JSON.stringify(updateQuestion)
-localStorage.setItem("newQuestion",data)
+   typeof window !== 'undefined' ? localStorage.setItem("newQuestion",data) : null;
     } 
 const handleChange = ()=>{
     setChecked((prevChecked) => !prevChecked)  
@@ -77,9 +77,11 @@ const selectQuestionDelete =  async (id)=>{
  const changeHideSetting = async (e)=>{
   setRadioButtonValue(true)
    setSecondButton(true)
+   const plyerName = typeof window !== 'undefined' ? localStorage.getItem("newQuestion") : null;
+  const plyerNameJson = plyerName ? JSON.parse(plyerName) : null;
    const updateQuestionInDatabase =  await axios.put("http://localhost:3000/api/updateQuestion", {data : {
     id : idToUpdateQuestion,
-    question :localStorage.getItem("newQuestion") 
+    question :plyerNameJson 
    }})
   //  console.log(updateQuestionInDatabase.status , updateQuestionInDatabase, "getdata")
    if(updateQuestionInDatabase.status == 201){

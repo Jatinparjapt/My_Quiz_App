@@ -4,7 +4,8 @@ import { Typography } from "@mui/material";
 import ProgressBar from '../components/progress';
 import Head from 'next/head';
 export default function ResultQuiz() {
-  const score = sessionStorage.getItem("score")
+  const plyerName = typeof window !== 'undefined' ? localStorage.getItem("score") : null;
+  const score = plyerName ? JSON.parse(plyerName) : null;
   return (
     <>
     <Head>
