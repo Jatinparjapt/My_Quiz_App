@@ -22,7 +22,7 @@ export async function reducer(state = initialState, action) {
   // console.log(newData ,"reducer data")
   try {
     if (action.type === "addToDatabase") {
-      const sendData = await axios.post("/api/data", {
+      const sendData = await axios.post("https://my-quiz-app-sigma.vercel.app/api/data", {
         questionType: newData.questionType,
         category: newData.category,
         description: newData.description,
