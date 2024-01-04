@@ -1,12 +1,25 @@
 
 import React,{  useState } from 'react';
 import axios from 'axios';
-import {Button,styled,Paper,FormControl,FormLabel,TableCell, tableCellClasses ,Grid,Input,Table,Switch,TableContainer,TableHead,TableRow,TableBody,FormControlLabel} from '@mui/material';
+import {Button} from '@mui/material';
+import { styled ,Input} from '@mui/material';
+import Table from '@mui/material/Table';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import TableBody from '@mui/material/TableBody';
+import DeleteIcon from '@mui/icons-material/Delete';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import Link from 'next/link';
 import Head from 'next/head';
-import {EditIcon} from '@mui/icons-material/Edit'; 
+import EditIcon from '@mui/icons-material/Edit'; 
 import ProgressBar from '../components/progress';
-
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -156,8 +169,8 @@ const selectQuestionDelete =  async (id)=>{
 }
 export async function getServerSideProps(){
   try {
-    const getQuestionFromDatabase = await axios.get("/api/getQuestions")
-    const questions = await getQuestionFromDatabase.data
+    const getQuestionFromDatabase = await axios.get("http://localhost:3000/api/getQuestions")
+    const questions =  getQuestionFromDatabase.data
    
     return{
       props:{questions}
