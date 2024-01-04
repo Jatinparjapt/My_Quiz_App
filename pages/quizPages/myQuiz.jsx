@@ -1,5 +1,5 @@
 
-import React,{  useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import axios from 'axios';
 import {Button} from '@mui/material';
 import { styled ,Input} from '@mui/material';
@@ -48,7 +48,7 @@ export default function MyQuiz({questions}) {
   const questionUpdate = (e)=>{
 setUpdateQuestion(e.target.value)
    const data =  JSON.stringify(updateQuestion)
-   typeof window !== 'undefined' ? localStorage.setItem("newQuestion",data) : null;
+localStorage.setItem("newQuestion",data)
     } 
 const handleChange = ()=>{
     setChecked((prevChecked) => !prevChecked)  
@@ -57,7 +57,7 @@ const handleChange = ()=>{
 const selectQuestionDelete =  async (id)=>{
   let deleteConfirm = confirm("Are you sure to delete this question?");
     if(deleteConfirm){
-      const data = await axios.delete("/api/deleteQuestion", {data : id})
+      const data = await axios.delete("http://localhost:3000/api/deleteQuestion", {data : id})
       // console.log(data.data , "data.data") 
       if(data.status == 200){
         alert("Question Deleted")
@@ -77,11 +77,9 @@ const selectQuestionDelete =  async (id)=>{
  const changeHideSetting = async (e)=>{
   setRadioButtonValue(true)
    setSecondButton(true)
-   const plyerName = typeof window !== 'undefined' ? localStorage.getItem("newQuestion") : null;
-  const plyerNameJson = plyerName ? JSON.parse(plyerName) : null;
-   const updateQuestionInDatabase =  await axios.put("/api/updateQuestion", {data : {
+   const updateQuestionInDatabase =  await axios.put("http://localhost:3000/api/updateQuestion", {data : {
     id : idToUpdateQuestion,
-    question :plyerNameJson 
+    question :localStorage.getItem("newQuestion") 
    }})
   //  console.log(updateQuestionInDatabase.status , updateQuestionInDatabase, "getdata")
    if(updateQuestionInDatabase.status == 201){
@@ -96,9 +94,6 @@ const selectQuestionDelete =  async (id)=>{
     <div className="mt-16" >
   <ProgressBar/>
   </div>
-  <Head>
-        <title>Quizes Page</title>
-      </Head>
     <div  className='mt-20 m-5' >
     <div
           id="hideDiv"
@@ -171,7 +166,7 @@ const selectQuestionDelete =  async (id)=>{
 }
 export async function getServerSideProps(){
   try {
-    const getQuestionFromDatabase = await axios.get("/api/getQuestions")
+    const getQuestionFromDatabase = await axios.get("http://localhost:3000/api/getQuestions")
     const questions =  getQuestionFromDatabase.data
    
     return{
