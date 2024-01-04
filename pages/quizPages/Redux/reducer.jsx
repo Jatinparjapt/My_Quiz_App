@@ -15,7 +15,7 @@ export async function reducer(state = initialState, action) {
   // console.log(newData ,"reducer data")
   try {
     if (action.type === "addToDatabase") {
-      const sendData = await axios.post("http://localhost:3000/api/data", {
+      const sendData = await axios.post("/api/data", {
         questionType: newData.questionType,
         category: newData.category,
         description: newData.description,
