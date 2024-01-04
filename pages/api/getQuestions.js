@@ -1,5 +1,5 @@
-import QuestionModel from "./mongoDb/schme"
-import connection from "./mongoDb/connection";
+import QuestionModel from "./schme"
+import connection from "./connection";
 export default async function handler(req, res) {
   try {
     await connection.connect()

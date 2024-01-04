@@ -1,5 +1,5 @@
-import connection from "./mongoDb/connection"
-import questionModel from "./mongoDb/schme"
+import connection from "./connection"
+import questionModel from "./schme"
 export default async function dataHandler (req ,res ){
     try {
         if(req.method == "POST"){
