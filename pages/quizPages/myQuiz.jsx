@@ -17,7 +17,7 @@ import Grid from '@mui/material/Grid';
 import Link from 'next/link';
 import Head from 'next/head';
 import EditIcon from '@mui/icons-material/Edit'; 
-import ProgressBar from '../components/progress';
+import ProgressBar from '../../components/progress';
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

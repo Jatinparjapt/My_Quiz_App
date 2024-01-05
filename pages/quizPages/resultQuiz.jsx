@@ -1,7 +1,7 @@
 import  React from 'react';
 import Link from 'next/link';
 import { Typography } from "@mui/material";
-import ProgressBar from '../components/progress';
+import ProgressBar from '../../components/progress';
 import Head from 'next/head';
 export default function ResultQuiz() {
   const plyerName = typeof window !== 'undefined' ? localStorage.getItem("score") : null;

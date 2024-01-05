@@ -2,7 +2,7 @@ import React, { useState ,useEffect } from 'react';
 import { Button ,Input,FormControl,FormControlLabel,RadioGroup,Radio } from '@mui/material';
 import { useRouter } from 'next/router';
 import { dataStore } from '..';
-import ProgressBar from '../components/progress';
+import ProgressBar from '../../components/progress';
 import axios from 'axios';
 import Head from 'next/head';
 export default function PlayQuiz({questions}) {

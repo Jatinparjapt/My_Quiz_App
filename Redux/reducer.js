@@ -1,12 +1,4 @@
 import axios from "axios";
-import React from "react";
-// reducer
-const reactReducer = () => {
-  return (
-    <div>.</div>
-  )
-}
-
 export default reactReducer
 const initialState = {
   questionType: "",

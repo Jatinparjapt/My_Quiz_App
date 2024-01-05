@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import Navbar from "./components/navbar"
+import Navbar from "../components/navbar"
 import { dataStore } from '.'
 import { Provider } from 'react-redux'
 

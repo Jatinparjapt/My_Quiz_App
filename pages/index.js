@@ -1,7 +1,7 @@
 import {  CardActionArea, CardActions ,Typography , CardContent ,Card} from '@mui/material';
 import { Inter } from 'next/font/google'
 import Image from "next/image"
-import ProgressBar from './components/progress';
+import ProgressBar from '../components/progress';
 import createQuiz from "@/public/createQuiz.png"
 import myQuizes from "@/public/myQuizes.png"
 import playQuiz from "@/public/playQuiz.png"

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Input ,TextField,Radio ,IconButton,RadioGroup ,FormLabel,FormControlLabel ,Button ,InputAdornment,FormControl} from "@mui/material";
-import ProgressBar from '../components/progress';
+import ProgressBar from '../../components/progress';
 import DeleteIcon from "@mui/icons-material/Delete";
 import Head from "next/head";
 import { dataStore } from "../index";
