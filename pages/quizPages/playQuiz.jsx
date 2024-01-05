@@ -178,7 +178,7 @@ const startQuizButton = (event)=>{
 
 export async function getServerSideProps(){
   try {
-    const getQuestionFromDatabase = await axios.get("https://my-quiz-app-sigma.vercel.app/api/getQuestions")
+    const getQuestionFromDatabase = await axios.get("/api/getQuestions")
     const questions = getQuestionFromDatabase.data
     return{
       props:{questions}
