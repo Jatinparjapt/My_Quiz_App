@@ -8,7 +8,7 @@ import playQuiz from "@/public/playQuiz.png"
 import Link from 'next/link'
 import Head from 'next/head';
 import { createStore ,combineReducers } from 'redux';
-import { reducer ,scoreReducer } from './Redux/reducer';
+import { reducer ,scoreReducer } from '../Redux/reducer';
 const inter = Inter({ subsets: ['latin'] })
 export const dataStore = createStore(
   combineReducers({
