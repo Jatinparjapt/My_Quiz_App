@@ -84,7 +84,7 @@ const startQuizButton = (event)=>{
 
     if(currentIndex == data.length-1){
       alert("Data Submitted")
-        router.push("http://localhost:3000/quizPages/resultQuiz")
+        router.push("/quizPages/resultQuiz")
     }else{
       setCurrentIndex((prevIndex) => {
         const newIndex = (prevIndex + 1) % data.length;
@@ -176,7 +176,7 @@ const startQuizButton = (event)=>{
 }
 
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
   try {
     const getQuestionFromDatabase = await axios.get("/api/getQuestions")
     const questions = getQuestionFromDatabase.data

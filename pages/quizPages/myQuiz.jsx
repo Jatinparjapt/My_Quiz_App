@@ -164,7 +164,7 @@ const selectQuestionDelete =  async (id)=>{
     </>
   );
 }
-export async function getStaticProps(){
+export async function getServerSideProps(){
   try {
     const getQuestionFromDatabase = await axios.get("/api/getQuestions")
     const questions =  getQuestionFromDatabase.data
