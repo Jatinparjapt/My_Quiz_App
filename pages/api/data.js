@@ -5,7 +5,7 @@ export default async function dataHandler (req ,res ){
         if(req.method == "POST"){
        await connection.connect()
         const {questionType ,category ,description, question,option1,option2,option3} = req.body
-        console.log(questionType ,category ,description, question,option1,option2,option3, 'serverside')
+        // console.log(questionType ,category ,description, question,option1,option2,option3, 'serverside')
         if(!questionType|| !category|| !description ||!question || !option1 || !option2 || !option3 ){
             res.status(404).json({ error: 'Please enter all required data' })
         }else{
