@@ -176,7 +176,7 @@ const startQuizButton = (event)=>{
 }
 
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
   try {
     const getQuestionFromDatabase = await axios.get("/api/getQuestions")
     const questions = getQuestionFromDatabase.data
