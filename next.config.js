@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 
-module.exports = nextConfig
+module.exports =  {exportPathMap: async function () {
+  return {
+    '/': { page: './pages/index.js' },  // Example: Map the root URL to the index page
+  };
+},}
