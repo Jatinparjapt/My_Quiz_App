@@ -14,7 +14,7 @@ export async function reducer(state = initialState, action) {
   // console.log(newData ,"reducer data")
   try {
     if (action.type === "addToDatabase") {
-      const sendData = await axios.post("/api/data", {
+      const sendData = await axios.post("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/data", {
         questionType: newData.questionType,
         category: newData.category,
         description: newData.description,

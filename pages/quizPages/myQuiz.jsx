@@ -57,7 +57,7 @@ const handleChange = ()=>{
 const selectQuestionDelete =  async (id)=>{
   let deleteConfirm = confirm("Are you sure to delete this question?");
     if(deleteConfirm){
-      const data = await axios.delete("/api/deleteQuestion", {data : id})
+      const data = await axios.delete("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/deleteQuestion", {data : id})
       // console.log(data.data , "data.data") 
       if(data.status == 200){
         alert("Question Deleted")
@@ -77,7 +77,7 @@ const selectQuestionDelete =  async (id)=>{
  const changeHideSetting = async (e)=>{
   setRadioButtonValue(true)
    setSecondButton(true)
-   const updateQuestionInDatabase =  await axios.put("/api/updateQuestion", {data : {
+   const updateQuestionInDatabase =  await axios.put("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/updateQuestion", {data : {
     id : idToUpdateQuestion,
     question :localStorage.getItem("newQuestion") 
    }})
@@ -166,7 +166,7 @@ const selectQuestionDelete =  async (id)=>{
 }
 export async function getStaticProps(){
   try {
-    const getQuestionFromDatabase = await axios.get("/api/getQuestions")
+    const getQuestionFromDatabase = await axios.get("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/getQuestions")
     const questions =  getQuestionFromDatabase.data
    
     return{
