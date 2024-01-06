@@ -34,7 +34,7 @@ const playerName = (event)=>{
 const startQuizButton = (event)=>{
   event.preventDefault()
   const inputname = JSON.stringify(name)
-    localStorage.setItem("name", inputname)
+    localStorage.setItem("name", name)
     setRadioButtonValue(true)
 }
   const updateScore = (event)=>{
@@ -176,7 +176,7 @@ const startQuizButton = (event)=>{
 }
 
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
   try {
     const getQuestionFromDatabase = await axios.get("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/getQuestions")
     const questions = getQuestionFromDatabase.data

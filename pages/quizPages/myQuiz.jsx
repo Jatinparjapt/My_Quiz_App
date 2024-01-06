@@ -88,6 +88,15 @@ const selectQuestionDelete =  async (id)=>{
     alert("Not Update Question Perfectly")
    }
  }
+ if(!data){
+  return (
+<div className="mt-16" >
+  <h1>loading ......</h1>
+  </div>
+  )
+  
+ }else{
+
 
   return (
     <>
@@ -163,8 +172,8 @@ const selectQuestionDelete =  async (id)=>{
     </div>
     </>
   );
-}
-export async function getStaticProps(){
+} }
+export async function getServerSideProps(){
   try {
     const getQuestionFromDatabase = await axios.get("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/getQuestions")
     const questions =  getQuestionFromDatabase.data

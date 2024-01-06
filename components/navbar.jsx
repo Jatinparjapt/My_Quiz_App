@@ -17,18 +17,16 @@ import NoAccountsIcon from '@mui/icons-material/NoAccounts';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 const drawerWidth = 240;
-
-
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const plyerName = typeof window !== 'undefined' ? localStorage.getItem("name") : null;
+  const score = plyerName ? JSON.parse(plyerName) : null;
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  const plyerName = typeof window !== 'undefined' ? localStorage.getItem("name") : null;
-  const plyerNameJson = plyerName ? JSON.parse(plyerName) : null;
-
+  
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" className='flex justify-center' >
@@ -52,10 +50,10 @@ function DrawerAppBar(props) {
             Play Quiz
              </Link>
              <Link href={"/"} >
-            {plyerNameJson}
+            {score}
              </Link>
              {
-              !plyerNameJson? <Link href={"/"} >
+              !score? <Link href={"/"} >
             <NoAccountsIcon/>
                </Link> : <Link href={"/"} >
               <AccountCircleIcon/>
@@ -105,10 +103,12 @@ function DrawerAppBar(props) {
             Play Quiz
              </Link>
              <Link href={"/"} >
-            {plyerNameJson}
+            {score}
              </Link>
+
+
              {
-              !plyerNameJson? <Link href={"/"} >
+              !score? <Link href={"/"} >
             <NoAccountsIcon/>
                </Link> : <Link href={"/"} >
               <AccountCircleIcon/>

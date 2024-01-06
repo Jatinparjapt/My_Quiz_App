@@ -1,5 +1,4 @@
 import axios from "axios";
-export default reactReducer
 const initialState = {
   questionType: "",
   category: "",
@@ -9,12 +8,12 @@ const initialState = {
   option2: { data: "", checked: false },
   option3: { data: "", checked: false },
 };
-export async function reducer(state = initialState, action) {
+ export  async function reducer(state = initialState, action) {
   let newData = action.payload;
   // console.log(newData ,"reducer data")
   try {
     if (action.type === "addToDatabase") {
-      const sendData = await axios.post("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/data", {
+      const sendData = await axios.post("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/addQuestions", {
         questionType: newData.questionType,
         category: newData.category,
         description: newData.description,
