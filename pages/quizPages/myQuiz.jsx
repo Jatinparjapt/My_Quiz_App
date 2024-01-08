@@ -54,12 +54,13 @@ const handleChange = ()=>{
     setChecked((prevChecked) => !prevChecked)  
 }
 
-const selectQuestionDelete =  async (id)=>{
+const selectQuestionDelete =  async (isId)=>{
   let deleteConfirm = confirm("Are you sure to delete this question?");
+  console.log(isId)
     if(deleteConfirm){
-      const data = await axios.delete("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/deleteQuestion", {data : id})
+      const data = await axios.delete("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/deleteQuestion",{ data: { id: isId }})
       // console.log(data.data , "data.data") 
-      if(data.status == 200){
+      if(data.status === 200){
         alert("Question Deleted")
       }else{
         alert("Some error occured")
@@ -77,12 +78,12 @@ const selectQuestionDelete =  async (id)=>{
  const changeHideSetting = async (e)=>{
   setRadioButtonValue(true)
    setSecondButton(true)
-   const updateQuestionInDatabase =  await axios.put("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/updateQuestion", {data : {
-    id : idToUpdateQuestion,
+   const updateQuestionInDatabase =  await axios.put(`https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/updateQuestion`,  {
+    id:idToUpdateQuestion,
     question :localStorage.getItem("newQuestion") 
-   }})
+   })
   //  console.log(updateQuestionInDatabase.status , updateQuestionInDatabase, "getdata")
-   if(updateQuestionInDatabase.status == 201){
+   if(updateQuestionInDatabase.status == 200){
     alert("Update Question ")
    }else{
     alert("Not Update Question Perfectly")
