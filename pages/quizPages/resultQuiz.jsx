@@ -17,10 +17,14 @@ export default function ResultQuiz() {
     <div className='mt-20 flex justify-center ' >
       <div>
       <Typography variant="subtitle1" component="div">
-         <h1 className='rounded-md text-4xl ml-3 text-gray-800' >Result: {score}</h1>
+         <h1 className='rounded-md text-4xl ml-3 text-gray-800' >Hey ! Hacker Thats Your Result : {score}</h1>
       </Typography>
       <br />
-      <Link className='rounded-full border-solid border-2  hover:bg-black text-md pl-12 pr-12' href = ".." > Back To Home</Link>
+      <div className='flex justify-center ' >
+
+     
+      <Link className='rounded-full border-solid border-2  hover:text-sky-100 hover:bg-black text-2xl pl-20 pr-20 pt-5 pb-5' href = ".." > Back To Home</Link>
+      </div>
       </div>
     </div>
     </>

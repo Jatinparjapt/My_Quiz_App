@@ -8,19 +8,18 @@ import playQuiz from "@/public/playQuiz.png"
 import Link from 'next/link'
 import Head from 'next/head';
 import { createStore ,combineReducers } from 'redux';
-import { reducer ,scoreReducer } from '../Redux/reducer';
+import { reducer ,scoreReducer , playerName } from '../Redux/reducer';
 const inter = Inter({ subsets: ['latin'] })
 export const dataStore = createStore(
   combineReducers({
     reducer :reducer,
-    scoreReducer : scoreReducer
+    scoreReducer : scoreReducer,
+    playerName: playerName
   })
   )
   dataStore.subscribe(()=>{
     console.log("state",dataStore.getState())
   })
-  
-  
   export default function Home() {
   return (
     <>

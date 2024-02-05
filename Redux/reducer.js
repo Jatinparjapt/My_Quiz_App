@@ -47,3 +47,17 @@ export function scoreReducer(state = score, action) {
     state,
   };
 }
+let name = "";
+export function playerName(state = name, action) {
+  if (action.type == "updatePlayer") {
+    let playerName = action.payload;
+    sessionStorage.setItem("name", playerName);
+    return {
+      ...state,
+      name: playerName,
+    };
+  }
+  return {
+    state,
+  };
+}

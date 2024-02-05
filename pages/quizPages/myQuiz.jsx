@@ -101,6 +101,9 @@ const selectQuestionDelete =  async (isId)=>{
 
   return (
     <>
+    <Head>
+        <title>My Quiz Page</title>
+      </Head>
     <div className="mt-16" >
   <ProgressBar/>
   </div>

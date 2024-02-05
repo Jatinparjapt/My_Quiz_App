@@ -20,8 +20,10 @@ const drawerWidth = 240;
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const plyerName = typeof window !== 'undefined' ? localStorage.getItem("name") : null;
-  const score = plyerName ? JSON.parse(plyerName) : null;
+  // console.log(data)
+  
+   const data = typeof window !== 'undefined' ?  sessionStorage.getItem("name") : null
+ 
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -50,10 +52,10 @@ function DrawerAppBar(props) {
             Play Quiz
              </Link>
              <Link href={"/"} >
-            {score}
+            {data}
              </Link>
              {
-              !score? <Link href={"/"} >
+              !data? <Link href={"/"} >
             <NoAccountsIcon/>
                </Link> : <Link href={"/"} >
               <AccountCircleIcon/>
@@ -103,12 +105,12 @@ function DrawerAppBar(props) {
             Play Quiz
              </Link>
              <Link href={"/"} >
-            {score}
+            {data}
              </Link>
 
 
              {
-              !score? <Link href={"/"} >
+              !data? <Link href={"/"} >
             <NoAccountsIcon/>
                </Link> : <Link href={"/"} >
               <AccountCircleIcon/>

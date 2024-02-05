@@ -26,6 +26,7 @@ export default function PlayQuiz({questions}) {
       payload: score,
     });
     
+    
   }, [score, currentIndex]);
 const playerName = (event)=>{
   const {value} = event.target
@@ -33,8 +34,10 @@ const playerName = (event)=>{
   }
 const startQuizButton = (event)=>{
   event.preventDefault()
-  const inputname = JSON.stringify(name)
-    localStorage.setItem("name", name)
+  dataStore.dispatch({
+    type: "updatePlayer",
+    payload : name
+  })
     setRadioButtonValue(true)
 }
   const updateScore = (event)=>{
