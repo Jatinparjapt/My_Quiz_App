@@ -58,7 +58,7 @@ const selectQuestionDelete =  async (isId)=>{
   let deleteConfirm = confirm("Are you sure to delete this question?");
   console.log(isId)
     if(deleteConfirm){
-      const data = await axios.delete("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/deleteQuestion",{ data: { id: isId }})
+      const data = await axios.delete("elastic-voice-production.up.railway.app/api/deleteQuestion",{ data: { id: isId }})
       // console.log(data.data , "data.data") 
       if(data.status === 200){
         alert("Question Deleted")
@@ -78,7 +78,7 @@ const selectQuestionDelete =  async (isId)=>{
  const changeHideSetting = async (e)=>{
   setRadioButtonValue(true)
    setSecondButton(true)
-   const updateQuestionInDatabase =  await axios.put(`https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/updateQuestion`,  {
+   const updateQuestionInDatabase =  await axios.put(`elastic-voice-production.up.railway.app/api/updateQuestion`,  {
     id:idToUpdateQuestion,
     question :localStorage.getItem("newQuestion") 
    })
@@ -179,7 +179,7 @@ const selectQuestionDelete =  async (isId)=>{
 } }
 export async function getServerSideProps(){
   try {
-    const getQuestionFromDatabase = await axios.get("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/getQuestions")
+    const getQuestionFromDatabase = await axios.get("elastic-voice-production.up.railway.app/api/getQuestions")
     const questions =  getQuestionFromDatabase.data
    
     return{

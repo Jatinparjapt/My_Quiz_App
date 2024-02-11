@@ -181,7 +181,7 @@ const startQuizButton = (event)=>{
 
 export async function getServerSideProps(){
   try {
-    const getQuestionFromDatabase = await axios.get("https://myquiz01app-6d1b99b4c8a3.herokuapp.com/api/getQuestions")
+    const getQuestionFromDatabase = await axios.get("elastic-voice-production.up.railway.app/api/getQuestions")
     const questions = getQuestionFromDatabase.data
     return{
       props:{questions}
