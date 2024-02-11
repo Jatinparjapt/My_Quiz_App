@@ -13,7 +13,7 @@ const initialState = {
   // console.log(newData ,"reducer data")
   try {
     if (action.type === "addToDatabase") {
-      const sendData = await axios.post("elastic-voice-production.up.railway.app/api/addQuestions", {
+      const sendData = await axios.post("https://elastic-voice-production.up.railway.app/api/addQuestions", {
         questionType: newData.questionType,
         category: newData.category,
         description: newData.description,
